@@ -1,0 +1,109 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.workspace7</groupId>
+  <artifactId>keycloak-demo-server</artifactId>
+  <version>1.0.0</version>
+
+  <name>Keycloak:: Demo:: Server</name>
+  <description>
+    Keycloack (security) - Integrated SSO and IDM for browser apps and RESTful services, this is a modified version
+    of the fabric8io/devops app which provides ability to import realms found in ${project.basedir}/src/main/resources,
+    which can be useful quick demo setups
+  </description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <fabric8-maven-plugin.version>3.2.1</fabric8-maven-plugin.version>
+    <keycloak.admin.user>admin</keycloak.admin.user>
+    <keycloak.admin.password>admin</keycloak.admin.password>
+    <keycloak.import.dir>/opt/jboss/keycloak/realms</keycloak.import.dir>
+  </properties>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/fabric8</directory>
+        <filtering>true</filtering>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.1</version>
+        <configuration>
+          <delimiters>@</delimiters>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>fabric8-maven-plugin</artifactId>
+        <version>${fabric8-maven-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>fmp</id>
+            <phase>package</phase>
+            <goals>
+              <goal>resource</goal>
+              <goal>build</goal>
+              <goal>helm</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <images>
+            <image>
+              <name>%g/%a</name>
+              <alias>keycloak</alias>
+              <build>
+                <from>jboss/keycloak</from>
+                <tags>
+                  <tag>latest</tag>
+                  <tag>${project.version}</tag>
+                </tags>
+                <ports>
+                  <port>8080</port>
+                </ports>
+                <cmd>
+                  <exec>
+                    <arg>-b</arg>
+                    <arg>0.0.0.0</arg>
+                    <arg>-bmanagement</arg>
+                    <arg>0.0.0.0</arg>
+                    <arg>-Dkeycloak.migration.action=import</arg>
+                    <arg>-Dkeycloak.migration.provider=dir</arg>
+                    <arg>-Dkeycloak.migration.dir=${keycloak.import.dir}</arg>
+                  </exec>
+                </cmd>
+                <assembly>
+                  <mode>dir</mode>
+                  <basedir>${keycloak.import.dir}</basedir>
+                  <inline>
+                    <fileSets>
+                      <fileSet>
+                        <directory>${basedir}/src/main/resources</directory>
+                        <outputDirectory>/</outputDirectory>
+                        <includes>
+                          <include>*.json</include>
+                        </includes>
+                      </fileSet>
+                    </fileSets>
+                  </inline>
+                </assembly>
+              </build>
+            </image>
+          </images>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

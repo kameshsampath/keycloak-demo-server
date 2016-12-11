@@ -1,0 +1,134 @@
+{
+  "realm" : "springboot",
+  "users" : [ {
+    "id" : "bd24870a-a2ea-4cc7-961e-e1f5840242b0",
+    "createdTimestamp" : 1481466384766,
+    "username" : "donald",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "Donald",
+    "lastName" : "Duck",
+    "email" : "donald.duck@example.com",
+    "credentials" : [ {
+      "type" : "password",
+      "hashedSaltedValue" : "zC0egWM1tj2xfz3hrFr8leJxzcIQ0+Hv2Gw8LkiVcT+VdFIaVySPn/+elDeIJYZWaUIdxuutPWXMW0mG0+mz9g==",
+      "salt" : "GUVXk/JeQzZPlH/1xAAcrg==",
+      "hashIterations" : 20000,
+      "counter" : 0,
+      "algorithm" : "pbkdf2",
+      "digits" : 0,
+      "createdDate" : 1481466395000
+    } ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "offline_access" ],
+    "clientRoles" : {
+      "account" : [ "view-profile", "manage-account" ]
+    },
+    "groups" : [ ]
+  }, {
+    "id" : "92ccc035-e7c0-4b6d-bcc7-c8f35b8a0cc1",
+    "createdTimestamp" : 1481466351750,
+    "username" : "jerry",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "Jerry",
+    "lastName" : "Mouse",
+    "email" : "jerry.mouse@example.com",
+    "credentials" : [ {
+      "type" : "password",
+      "hashedSaltedValue" : "9+4aRLIyukAgfGF4oNFLw3duwKxXSdmoN4vMRsFi9NXId/hzFOeGDiwvdumr8BvhsEmTiPtaWwHI8nZzyO0zRg==",
+      "salt" : "LzZnGzCPiySrqgCDkz2ong==",
+      "hashIterations" : 20000,
+      "counter" : 0,
+      "algorithm" : "pbkdf2",
+      "digits" : 0,
+      "createdDate" : 1481466362000
+    } ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "offline_access" ],
+    "clientRoles" : {
+      "account" : [ "view-profile", "manage-account" ]
+    },
+    "groups" : [ ]
+  }, {
+    "id" : "1b45fcd6-dd78-45db-b1d4-b4d30950bd56",
+    "createdTimestamp" : 1481466429789,
+    "username" : "mickey",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "Mickey",
+    "lastName" : "Mouse",
+    "email" : "mickey.mouse@example.com",
+    "credentials" : [ {
+      "type" : "password",
+      "hashedSaltedValue" : "w2au3s15vKdTBoXhkuO6FXBZn9xGdXNvuflPPzToIq1t5DbMsf4b3oyEgRBJJ3ZhoqYVgGiArCiKGbVVIzTNpg==",
+      "salt" : "EFT7ba12fPCJnO+BOcqgaQ==",
+      "hashIterations" : 20000,
+      "counter" : 0,
+      "algorithm" : "pbkdf2",
+      "digits" : 0,
+      "createdDate" : 1481466440000
+    } ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "offline_access" ],
+    "clientRoles" : {
+      "account" : [ "view-profile", "manage-account" ]
+    },
+    "groups" : [ ]
+  }, {
+    "id" : "d1e56cf2-5136-47ab-b459-94c15f8c66e0",
+    "createdTimestamp" : 1481264350786,
+    "username" : "springboot",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "Spring",
+    "lastName" : "Boot",
+    "email" : "springboot@example.com",
+    "credentials" : [ {
+      "type" : "password",
+      "hashedSaltedValue" : "dUzfQTh9aG4cjVr6fA29TnRq6f+6gh2BbOtbNNW8e4TQIl4fH6gayds1YQ4UtOX5vcpXcMQA/+HE4qAnwGT6rA==",
+      "salt" : "vO2qn4TzhmHHDxnzFyRCgw==",
+      "hashIterations" : 20000,
+      "counter" : 0,
+      "algorithm" : "pbkdf2",
+      "digits" : 0,
+      "createdDate" : 1481283194000
+    } ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "offline_access" ],
+    "clientRoles" : {
+      "account" : [ "view-profile", "manage-account" ]
+    },
+    "groups" : [ ]
+  }, {
+    "id" : "6ffd865c-fd7d-4f40-897a-64e1701c2b77",
+    "createdTimestamp" : 1481466287131,
+    "username" : "tom",
+    "enabled" : true,
+    "totp" : false,
+    "emailVerified" : true,
+    "firstName" : "Tom",
+    "lastName" : "Cat",
+    "email" : "tom.cat@example.com",
+    "credentials" : [ {
+      "type" : "password",
+      "hashedSaltedValue" : "v17qP8rujA5uPnFXHZJklxaKDuvCYBwyck+wCgEJ/QkiToZB8wcb6AEXvPpHJz6i+XXFpADc8iXtTQBZZ0699w==",
+      "salt" : "r8LxmV0iW+pIve25yLMZFg==",
+      "hashIterations" : 20000,
+      "counter" : 0,
+      "algorithm" : "pbkdf2",
+      "digits" : 0,
+      "createdDate" : 1481466300000
+    } ],
+    "requiredActions" : [ ],
+    "realmRoles" : [ "offline_access" ],
+    "clientRoles" : {
+      "account" : [ "view-profile", "manage-account" ]
+    },
+    "groups" : [ ]
+  } ]
+}

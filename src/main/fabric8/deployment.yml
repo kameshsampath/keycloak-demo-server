@@ -1,0 +1,28 @@
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - env:
+        - name: KEYCLOAK_USER
+          valueFrom:
+            configMapKeyRef:
+              key: "keycloak-server--admin-user"
+              name: "keycloak-server"
+        - name: KEYCLOAK_PASSWORD
+          valueFrom:
+            configMapKeyRef:
+              key: "keycloak-server--admin-password"
+              name: "keycloak-server"
+        readinessProbe:
+          httpGet:
+            path: "/auth"
+            port: 8080
+          initialDelaySeconds: 10
+          timeoutSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: "/auth"
+            port: 8080
+          initialDelaySeconds: 60
+          timeoutSeconds: 10
