@@ -1,1 +1,54 @@
-Built on top of the OAuth 2.0, Open ID Connect, JSON Web Token (JWT) and SAML 2.0 specifications.
+= Keycloak Demo Server
+
+Keycloack (security) - Integrated SSO and IDM for browser apps and RESTful services, this is a modified version
+of the https://github.com/fabric8io/fabric8-devops/tree/master/keycloak[fabric8io Keycloak] which is can used for quick
+demo setups.
+
+== Overview
+
+This project provisions Keycloak server with name _keycloak-demo-server_ on kubernetes using
+https://github.com/fabric8io/fabric8-maven-plugin[fabric8-maven-plugin] with https://hub.docker.com/r/jboss/keycloak/[JBoss Keycloak] as base image. As part of the provisioning all resources realm
+resources from `${project.basedir}/src/main/resources` are imported in to Keycloak.  Refer to
+https://keycloak.gitbooks.io/server-adminstration-guide/content/topics/export-import.html[Keycloak Import/Export] for more details on how the
+Import/Export works with Keycloak.
+
+== Configuring Admin User
+
+The Admin user for KeyCloak is defined using the http://kubernetes.io/docs/user-guide/configmap/[ConfigMap], the values
+from the configmap `${project.basedir}/src/main/fabric8/configmap.yml` are added as Envionment variables
+in the Kubernetes Deployment Config `${project.basedir}/src/main/fabric8/deployment.yml`.
+
+There two configurable environment variables that are defined by https://hub.docker.com/r/jboss/keycloak/[JBoss Keycloak]
+
+* KEYCLOAK_USER - the admin user for Keycloak
+* KEYCLOAK_PASSWORD - the admin user password for Keycloak
+
+== Keycloak Relam Resources
+
+The project has two Keycloak resources,
+
+* springboot-realm.json - the Keycloak realm named *springboot* and *springboot-local* exported form existing Keycloak server
+* springboot-users-0.json - the demo users who are part of the realm
+
+.Demo Users
+
+[cols="1,1", options="header"]
+|===
+|User
+|Password
+
+|springboot
+|password
+
+|tom
+|password
+
+|jerry
+|password
+
+|mickey
+|password
+
+|donald
+|password
+|===
