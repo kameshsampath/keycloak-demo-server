@@ -23,7 +23,7 @@ There two configurable environment variables that are defined by https://hub.doc
 * KEYCLOAK_USER - the admin user for Keycloak
 * KEYCLOAK_PASSWORD - the admin user password for Keycloak
 
-== Keycloak Relam Resources
+== Keycloak Realm Resources
 
 The project has two Keycloak resources,
 
