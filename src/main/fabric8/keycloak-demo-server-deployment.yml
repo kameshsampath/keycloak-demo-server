@@ -7,13 +7,13 @@ spec:
         - name: KEYCLOAK_USER
           valueFrom:
             configMapKeyRef:
-              key: "keycloak-server--admin-user"
-              name: "keycloak-server"
+              key: "keycloak-demo-server--admin-user"
+              name: "${project.artifactId}"
         - name: KEYCLOAK_PASSWORD
           valueFrom:
             configMapKeyRef:
-              key: "keycloak-server--admin-password"
-              name: "keycloak-server"
+              key: "keycloak-demo-server--admin-password"
+              name: "${project.artifactId}"
         readinessProbe:
           httpGet:
             path: "/auth"

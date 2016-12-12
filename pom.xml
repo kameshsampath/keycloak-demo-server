@@ -62,7 +62,7 @@
           <images>
             <image>
               <name>%g/%a</name>
-              <alias>keycloak</alias>
+              <alias>${project.artifactId}</alias>
               <build>
                 <from>jboss/keycloak</from>
                 <tags>
